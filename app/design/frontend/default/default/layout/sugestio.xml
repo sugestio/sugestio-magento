@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <!-- loads at most pages -->
+    <default>
+        <!-- Mage_Tag -->
+        <reference name="left">
+            <block type="sugestio_recommender/recommendations" name="sugestio_recommender.recommendations" before="-" template="sugestio/recommendations.phtml"/>
+        </reference>
+
+    </default>
+    <!-- product page -->
+    <catalog_product_view>
+        <reference name="right">
+            <block type="sugestio_recommender/similaritems" name="sugestio_recommender.similaritems" before="-" template="sugestio/similaritems.phtml"/>
+        </reference>
+    </catalog_product_view>
+</layout>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Sugestio_Recommender>
+            <codePool>local</codePool>
+            <active>true</active>
+        </Sugestio_Recommender>
+    </modules>
+</config>

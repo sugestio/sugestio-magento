@@ -1,0 +1,31 @@
+<?php
+/*
+ * @var $this Sugestio_Recommender_Block_View 
+*/
+?>
+<div class="block block-sugestio-similaritems">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Similar Products') ?></span></strong>
+    </div>
+    <div class="block-content">
+    <?php if ($this->hasSimilarItems()): ?>
+    <ol class="mini-products-list" id="sugestio-similaritems-sidebar">
+     <?php foreach ($this->getSimilarItems() as $_item): ?>
+        <li class="item">
+            <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $_item->getThumbnailUrl(50,50); ?>" width="50" height="50" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+            <div class="product-details">
+                <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->htmlEscape($_item->getName()) ?></a></p>
+                <?php echo $this->getPriceHtml($_item, false, '-wishlist') ?>
+                <?php if ($_item->isSaleable()): ?>
+                    <a href="<?php echo $this->getAddToCartUrl($_item) ?>" class="link-cart"><?php echo $this->__('Add to Cart') ?></a>
+                <?php endif; ?>
+            </div>
+        </li>
+    <?php endforeach; ?>
+    </ol>
+    <script type="text/javascript">decorateList('sugestio-similaritems-sidebar');</script>
+    <?php else: ?>
+        <p class="empty"><?php echo $this->__('No similar products.') ?></p>
+    <?php endif ?>
+    </div>
+</div>
